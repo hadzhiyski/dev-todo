@@ -1,9 +1,7 @@
-<router-outlet></router-outlet>
-
 <header>
-  <mat-toolbar class="header-toolbar" color="primary">
-    <div class="sidenav-btn-container">
-      <button mat-icon-button>
+  <mat-toolbar class="main-toolbar" color="primary">
+    <div class="sidenav-toggle">
+      <button mat-icon-button (click)="sidenav.toggle()">
         <span class="material-icons">menu</span>
       </button>
     </div>
@@ -18,21 +16,38 @@
   </mat-toolbar>
 </header>
 <main>
-  <div fxFlex fxLayout="row">
-    <div>
+  <mat-sidenav-container class="sidenav-container" hasBackdrop="false" autosize>
+    <mat-sidenav
+      #sidenav
+      class="main-sidenav"
+      [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+      mode="over"
+      [ngClass]="{ 'handset-sidenav': isHandset$ | async }"
+    >
       <mat-nav-list>
-        <mat-list-item [routerLink]="['todo']">
-          <mat-icon mat-list-icon>folder</mat-icon>
-          <div mat-line>todo</div>
-        </mat-list-item>
-        <mat-list-item [routerLink]="['todo']">
-          <mat-icon mat-list-icon>folder</mat-icon>
-          <div mat-line>todo</div>
-        </mat-list-item>
+        <a mat-list-item href="#">Link 1</a>
+        <a mat-list-item href="#">Link 2</a>
+        <a mat-list-item href="#">Link 3</a>
       </mat-nav-list>
-    </div>
-    <div class="main-content" role="main">
-      <router-outlet></router-outlet>
-    </div>
-  </div>
+    </mat-sidenav>
+    <mat-sidenav-content>
+      <div #mainContent fxFlex fxLayout="row" class="sidenav-content">
+        <div>
+          <mat-nav-list>
+            <mat-list-item [routerLink]="['todo']">
+              <mat-icon mat-list-icon>folder</mat-icon>
+              <div mat-line>todo</div>
+            </mat-list-item>
+            <mat-list-item [routerLink]="['todo']">
+              <mat-icon mat-list-icon>folder</mat-icon>
+              <div mat-line>todo</div>
+            </mat-list-item>
+          </mat-nav-list>
+        </div>
+        <div class="main-content" role="main">
+          <router-outlet></router-outlet>
+        </div>
+      </div>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
 </main>

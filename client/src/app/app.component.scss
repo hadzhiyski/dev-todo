@@ -1,11 +1,18 @@
-// TODO fix. toolbar height is 64px
-$body-height: calc(100vh - 64px);
+:host {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
 
 header {
-  .header-toolbar {
+  .main-toolbar {
     display: flex;
 
-    .sidenav-btn-container {
+    .sidenav-toggle {
       min-width: 5.5%;
     }
 
@@ -15,5 +22,20 @@ header {
       justify-content: space-between;
       align-items: center;
     }
+  }
+}
+
+main {
+  flex: 1;
+
+  .main-sidenav {
+    min-width: 15%;
+    &.handset-sidenav {
+      width: 100%;
+    }
+  }
+
+  .sidenav-container {
+    height: 100%;
   }
 }
