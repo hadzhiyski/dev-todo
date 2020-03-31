@@ -1,0 +1,14 @@
+.header-toolbar {
+  display: flex;
+
+  .sidenav-btn-container {
+    min-width: 5%;
+  }
+
+  .toolbar-container {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
