@@ -17,3 +17,22 @@
     </div>
   </mat-toolbar>
 </header>
+<main>
+  <div fxFlex fxLayout="row">
+    <div>
+      <mat-nav-list>
+        <mat-list-item [routerLink]="['todo']">
+          <mat-icon mat-list-icon>folder</mat-icon>
+          <div mat-line>todo</div>
+        </mat-list-item>
+        <mat-list-item [routerLink]="['todo']">
+          <mat-icon mat-list-icon>folder</mat-icon>
+          <div mat-line>todo</div>
+        </mat-list-item>
+      </mat-nav-list>
+    </div>
+    <div class="main-content" role="main">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</main>

@@ -1,14 +1,19 @@
-.header-toolbar {
-  display: flex;
+// TODO fix. toolbar height is 64px
+$body-height: calc(100vh - 64px);
 
-  .sidenav-btn-container {
-    min-width: 5%;
-  }
-
-  .toolbar-container {
+header {
+  .header-toolbar {
     display: flex;
-    width: 100%;
-    justify-content: space-between;
-    align-items: center;
+
+    .sidenav-btn-container {
+      min-width: 5.5%;
+    }
+
+    .toolbar-container {
+      display: flex;
+      width: 100%;
+      justify-content: space-between;
+      align-items: center;
+    }
   }
 }
