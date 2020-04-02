@@ -1,0 +1,3 @@
+ng g module todo --routing --flat false
+ng g feature todo/store/todo --module ./todo/todo.module.ts --group
+ng g container todo/components/TodoIndex
