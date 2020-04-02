@@ -3,10 +3,4 @@ export interface ITodo {
   title: string;
   description: string;
   createdOn: Date;
-  author: ITodoAuthor;
-}
-
-export interface ITodoAuthor {
-  id: number;
-  username: string;
 }

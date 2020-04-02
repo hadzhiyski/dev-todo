@@ -1,2 +1,2 @@
-export * from './todo-state.interface';
+export * from './todo-state.model';
 export * from './todo.interfaces';

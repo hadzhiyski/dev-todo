@@ -1,10 +1,11 @@
 import { Action, createReducer, on } from '@ngrx/store';
 import * as TodoIndexActions from '../actions/todo-index.actions';
-import { ITodoState, ITodo } from '../models';
+import { TodoState, ITodo } from '../models';
+import { Nullable } from '@devtodo/shared';
 
 export const todoFeatureKey = 'todo';
 
-export const initialState: ITodoState = {
+export const initialState: TodoState = {
   loading: false,
   error: null,
   todos: new Array<ITodo>()
@@ -16,7 +17,8 @@ const todoReducer = createReducer(
     return {
       ...state,
       loading: true,
-      error: null
+      error: null as Nullable<string>,
+      asdf: 123
     };
   }),
   on(TodoIndexActions.loadTodosSuccess, (state, action) => ({
@@ -28,12 +30,12 @@ const todoReducer = createReducer(
     return {
       ...state,
       error: action.error.message,
-      loading: false
+      loading: false,
     };
   }),
 
 );
 
-export function reducer(state: ITodoState | undefined, action: Action) {
+export function reducer(state: TodoState | undefined, action: Action) {
   return todoReducer(state, action);
 }

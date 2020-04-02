@@ -1,1 +1,6 @@
-<p>todo-index works!</p>
+<mat-card *ngFor="let todo of todos$ | async" class="todo">
+  <mat-card-title class="todo-title">{{ todo.title }}</mat-card-title>
+  <mat-card-subtitle class="todo-description">
+    {{ todo.description }}
+  </mat-card-subtitle>
+</mat-card>

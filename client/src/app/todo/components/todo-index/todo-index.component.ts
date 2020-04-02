@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { RxCleanupComponent } from '@devtodo/shared/components';
 import { TodoService } from '@devtodo/todo/store';
+import { ITodo } from '@devtodo/todo/store/models';
 import { Observable } from 'rxjs';
-import { ITodo, ITodoState } from '@devtodo/todo/store/models';
-import { Store } from '@ngrx/store';
 
 @Component({
   selector: 'app-todo-index',
@@ -11,14 +10,14 @@ import { Store } from '@ngrx/store';
   styleUrls: ['./todo-index.component.scss']
 })
 export class TodoIndexComponent extends RxCleanupComponent implements OnInit {
-
   loading$: Observable<boolean>;
   todos$: Observable<ITodo[]>;
 
-  constructor(private service: TodoService, private store: Store<ITodoState>) {
+  constructor(private service: TodoService) {
     super();
-    this.loading$ = this.store.select(state => state.loading);
-    this.todos$ = this.store.select(state => state.todos);
+
+    this.loading$ = this.service.loading$;
+    this.todos$ = this.service.todos$;
   }
 
   ngOnInit() {
