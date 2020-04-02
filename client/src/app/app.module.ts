@@ -9,6 +9,7 @@ import { environment } from '../environments/environment';
 import { AppMaterialModule } from './app-material.module';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { TodoModule } from './todo/todo.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -24,7 +25,9 @@ import { AppComponent } from './app.component';
       maxAge: 25,
       logOnly: environment.production
     }),
-    EffectsModule.forRoot([])
+    EffectsModule.forRoot([]),
+
+    TodoModule
   ],
   providers: [],
   bootstrap: [AppComponent]
