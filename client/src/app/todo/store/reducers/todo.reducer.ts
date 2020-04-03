@@ -6,7 +6,7 @@ import { Nullable } from '@devtodo/shared';
 export const todoFeatureKey = 'todo';
 
 export const initialState: TodoState = {
-  loading: false,
+  loading: true,
   error: null,
   todos: new Array<ITodo>()
 };
@@ -16,7 +16,6 @@ const todoReducer = createReducer(
   on(TodoIndexActions.loadTodos, state => {
     return {
       ...state,
-      loading: true,
       error: null as Nullable<string>,
       asdf: 123
     };

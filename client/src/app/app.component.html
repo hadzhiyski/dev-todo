@@ -15,7 +15,12 @@
     </div>
   </mat-toolbar>
 </header>
-<main class="flex-container">
+<mat-progress-bar
+  mode="indeterminate"
+  color="accent"
+  *ngIf="loading$ | async"
+></mat-progress-bar>
+<div class="flex-container">
   <mat-sidenav-container class="flex-container">
     <mat-sidenav
       #sidenav
@@ -34,10 +39,16 @@
         </mat-list-item>
       </mat-nav-list>
     </mat-sidenav>
-    <mat-sidenav-content>
-      <div class="main-content" role="main">
+    <mat-sidenav-content [class.visible]="(loading$ | async) === false">
+      <div class="sidenav-content" role="main">
         <router-outlet></router-outlet>
       </div>
+      <footer class="mat-elevation-z3">
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Cumque ullam
+        sit reprehenderit repellendus. Quisquam accusamus at voluptas
+        consectetur dolores velit ipsum nisi maiores in id! Porro laborum
+        aspernatur ea atque?
+      </footer>
     </mat-sidenav-content>
   </mat-sidenav-container>
-</main>
+</div>

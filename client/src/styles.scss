@@ -13,7 +13,7 @@
 // (imported above). For each palette, you can optionally specify a default, lighter, and darker
 // hue. Available color palettes: https://material.io/design/color/
 $dev-todo-primary: mat-palette($mat-blue);
-$dev-todo-accent: mat-palette($mat-yellow, A200, A100, A400);
+$dev-todo-accent: mat-palette($mat-yellow);
 
 // The warn palette is optional (defaults to red).
 $dev-todo-warn: mat-palette($mat-red);
