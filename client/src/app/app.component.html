@@ -15,32 +15,28 @@
     </div>
   </mat-toolbar>
 </header>
-<main>
-  <mat-sidenav-container class="sidenav-container">
+<main class="flex-container">
+  <mat-sidenav-container class="flex-container">
     <mat-sidenav
       #sidenav
-      class="main-sidenav"
       [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
-      mode="side"
-      [ngClass]="{ 'handset-sidenav': isHandset$ | async }"
+      [class.sidenav-handset]="isHandset$ | async"
+      [mode]="(isHandset$ | async) ? 'push' : 'side'"
     >
       <mat-nav-list>
         <mat-list-item [routerLink]="['todo']">
           <mat-icon mat-list-icon>assignment</mat-icon>
-          <div mat-line>todo</div>
+          <div mat-line>My Todos</div>
         </mat-list-item>
         <mat-list-item [routerLink]="['trash']">
           <mat-icon mat-list-icon>delete</mat-icon>
-          <div mat-line>trash</div>
+          <div mat-line>Recycle Bin</div>
         </mat-list-item>
       </mat-nav-list>
     </mat-sidenav>
     <mat-sidenav-content>
-      <div #mainContent fxFlex fxLayout="row">
-        <div *ngIf="!(isHandset$ | async)"></div>
-        <div class="main-content" role="main">
-          <router-outlet></router-outlet>
-        </div>
+      <div class="main-content" role="main">
+        <router-outlet></router-outlet>
       </div>
     </mat-sidenav-content>
   </mat-sidenav-container>
