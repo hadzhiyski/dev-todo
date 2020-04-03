@@ -26,7 +26,17 @@ $dev-todo-theme: mat-light-theme($dev-todo-primary, $dev-todo-accent, $dev-todo-
 // that you are using.
 @include angular-material-theme($dev-todo-theme);
 
+$green-palette: mat-palette($mat-green);
+
 /* You can add global styles to this file, and also import other style files */
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.text-green {
+  color: map-get($green-palette, 500);
+}
+
+.text-red {
+  color: map-get($dev-todo-warn, 500);
+}

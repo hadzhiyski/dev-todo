@@ -1,6 +1,18 @@
-<mat-card *ngFor="let todo of todos$ | async" class="todo">
+<mat-card
+  *ngFor="let todo of todos$ | async"
+  class="todo"
+  [class.todo-handset]="isHandset$ | async"
+>
   <mat-card-title class="todo-title">{{ todo.title }}</mat-card-title>
   <mat-card-subtitle class="todo-description">
     {{ todo.description }}
   </mat-card-subtitle>
+  <mat-card-actions>
+    <button mat-icon-button class="text-green" matTooltip="Mark as complete">
+      <span class="material-icons">done</span>
+    </button>
+    <button mat-icon-button class="text-red" matTooltip="Move to Recycle Bin">
+      <span class="material-icons">delete</span>
+    </button>
+  </mat-card-actions>
 </mat-card>

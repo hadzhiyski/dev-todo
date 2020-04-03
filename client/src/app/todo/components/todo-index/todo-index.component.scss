@@ -1,0 +1,21 @@
+:host {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-items: center;
+  justify-content: space-between;
+}
+
+.todo {
+  width: 45%;
+  margin: 1em 0;
+
+  &.todo-handset {
+    width: 100%;
+  }
+
+  .mat-card-actions {
+    display: flex;
+    justify-content: flex-end;
+  }
+}

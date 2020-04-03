@@ -12,7 +12,8 @@ export class TodoApi {
       (animal, index) => ({
         id: index,
         title: `Walk the ${animal}!`,
-        description: 'ASAP!',
+        description:
+          'Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum dolor sed consequatur illum eos mollitia amet recusandae accusantium! Consequuntur debitis placeat adipisci dolorum saepe aliquam assumenda itaque laborum facilis nemo.',
         createdOn: new Date(
           (Math.random() * 10000) % 2020,
           (Math.random() * 100) % 12,
@@ -28,6 +29,6 @@ export class TodoApi {
       })
     );
 
-    return of(todos).pipe(delay(3000));
+    return of(todos).pipe(delay(1000));
   }
 }
